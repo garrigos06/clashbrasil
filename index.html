@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clash Royale Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Topo do site -->
+  <header class="topbar">
+    <div class="logo">
+      ⚔️ Clash Hub Brasil
+    </div>
+    <nav class="menu">
+      <button class="menu-btn" data-section="decks">Decks</button>
+      <button class="menu-btn" data-section="estrategias">Estratégias</button>
+      <button class="menu-btn" data-section="noticias">Notícias</button>
+      <button class="menu-btn btn-outline" id="btn-login">Login</button>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <!-- Seção montador de decks -->
+    <section id="decks" class="section active">
+      <h1>Montador de Decks</h1>
+      <p>Toque nas cartas para adicioná-las ao deck. Toque em um slot do deck para remover.</p>
+
+      <div class="deck-builder">
+        <!-- Painel de cartas disponíveis -->
+        <div class="cards-panel">
+          <h2>Cartas disponíveis</h2>
+
+          <!-- Barra de busca e filtros -->
+          <div class="cards-filters">
+            <input
+              type="text"
+              id="search-card"
+              class="filter-input"
+              placeholder="Buscar carta pelo nome..."
+            />
+
+            <select id="filter-type" class="filter-select">
+              <option value="todos">Tipo: Todos</option>
+              <option value="tropa">Tropa</option>
+              <option value="feitiço">Feitiço</option>
+              <option value="estrutura">Estrutura</option>
+            </select>
+
+            <select id="filter-rarity" class="filter-select">
+              <option value="todas">Raridade: Todas</option>
+              <option value="comum">Comum</option>
+              <option value="rara">Rara</option>
+              <option value="epica">Épica</option>
+              <option value="lendaria">Lendária</option>
+            </select>
+
+            <select id="filter-elixir" class="filter-select">
+              <option value="todos">Elixir: Todos</option>
+              <option value="2-3">2–3</option>
+              <option value="4-5">4–5</option>
+              <option value="6+">6+</option>
+            </select>
+          </div>
+
+          <div class="cards-grid">
+            <!-- Algumas cartas de exemplo -->
+            <div class="card-option"
+              data-name="Cavaleiro"
+              data-elixir="3"
+              data-type="tropa"
+              data-rarity="comum"
+            >
+              <span class="card-name">Cavaleiro</span>
+              <span class="card-elixir">3⚡ · Tropa · Comum</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Arqueiras"
+              data-elixir="3"
+              data-type="tropa"
+              data-rarity="comum"
+            >
+              <span class="card-name">Arqueiras</span>
+              <span class="card-elixir">3⚡ · Tropa · Comum</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Gigante"
+              data-elixir="5"
+              data-type="tropa"
+              data-rarity="rara"
+            >
+              <span class="card-name">Gigante</span>
+              <span class="card-elixir">5⚡ · Tropa · Rara</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Mosqueteira"
+              data-elixir="4"
+              data-type="tropa"
+              data-rarity="rara"
+            >
+              <span class="card-name">Mosqueteira</span>
+              <span class="card-elixir">4⚡ · Tropa · Rara</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Bola de Fogo"
+              data-elixir="4"
+              data-type="feitiço"
+              data-rarity="rara"
+            >
+              <span class="card-name">Bola de Fogo</span>
+              <span class="card-elixir">4⚡ · Feitiço · Rara</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Zap"
+              data-elixir="2"
+              data-type="feitiço"
+              data-rarity="comum"
+            >
+              <span class="card-name">Zap</span>
+              <span class="card-elixir">2⚡ · Feitiço · Comum</span>
+            </div>
+
+            <div class="card-option"
+              data-name="P.E.K.K.A"
+              data-elixir="7"
+              data-type="tropa"
+              data-rarity="epica"
+            >
+              <span class="card-name">P.E.K.K.A</span>
+              <span class="card-elixir">7⚡ · Tropa · Épica</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Corredor"
+              data-elixir="4"
+              data-type="tropa"
+              data-rarity="rara"
+            >
+              <span class="card-name">Corredor</span>
+              <span class="card-elixir">4⚡ · Tropa · Rara</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Mago"
+              data-elixir="5"
+              data-type="tropa"
+              data-rarity="epica"
+            >
+              <span class="card-name">Mago</span>
+              <span class="card-elixir">5⚡ · Tropa · Épica</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Mini P.E.K.K.A"
+              data-elixir="4"
+              data-type="tropa"
+              data-rarity="rara"
+            >
+              <span class="card-name">Mini P.E.K.K.A</span>
+              <span class="card-elixir">4⚡ · Tropa · Rara</span>
+            </div>
+
+            <!-- Extras sugeridos -->
+            <div class="card-option"
+              data-name="Golem"
+              data-elixir="8"
+              data-type="tropa"
+              data-rarity="epica"
+            >
+              <span class="card-name">Golem</span>
+              <span class="card-elixir">8⚡ · Tropa · Épica</span>
+            </div>
+
+            <div class="card-option"
+              data-name="Torre Inferno"
+              data-elixir="5"
+              data-type="estrutura"
+              data-rarity="rara"
+            >
+              <span class="card-name">Torre Inferno</span>
+              <span class="card-elixir">5⚡ · Estrutura · Rara</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel do deck -->
+        <div class="deck-panel">
+          <h2>Seu deck (toque para remover)</h2>
+          <div class="deck-slots">
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+            <div class="deck-slot">Vazio</div>
+          </div>
+
+          <div class="deck-info">
+            <span>Cartas: <strong id="deck-count">0/8</strong></span>
+            <span>Custo médio de elixir: <strong id="avg-elixir">0.0</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção estratégias -->
+    <section id="estrategias" class="section">
+      <h1>Estratégias</h1>
+      <p>Ideias de decks, táticas de push, controle de elixir e defesa.</p>
+
+      <div class="strategy-grid">
+        <article class="strategy-card">
+          <h2>Deck de Corredor Ciclo</h2>
+          <p>Use cartas baratas para ciclar rápido até o Corredor e manter pressão constante em uma torre.</p>
+          <ul>
+            <li>Corredor como win condition</li>
+            <li>Zap / Bola de Fogo para suportar</li>
+            <li>Defesa barata para segurar pushes</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card">
+          <h2>Controle com P.E.K.K.A</h2>
+          <p>Segure grandes tanques e contra-ataque com P.E.K.K.A + suporte à distância.</p>
+          <ul>
+            <li>Use Mosqueteira/Mago atrás da P.E.K.K.A</li>
+            <li>Evite overcommit em elixir</li>
+          </ul>
+        </article>
+
+        <article class="strategy-card">
+          <h2>Golem Beatdown</h2>
+          <p>Junte elixir para um grande push com Golem + suporte, geralmente no duplo elixir.</p>
+          <ul>
+            <li>Evite jogar Golem se estiver atrás em elixir</li>
+            <li>Proteja suas tropas de suporte</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Seção notícias -->
+    <section id="noticias" class="section">
+      <h1>Notícias</h1>
+      <p>Use esta área para colocar mudanças de balanceamento, atualizações e novidades do Clash Royale.</p>
+
+      <div class="news-list">
+        <article class="news-item">
+          <h2>Atualização de Balanceamento</h2>
+          <span class="news-meta">Patch fictício · 2025</span>
+          <p>Aqui você pode listar buffs e nerfs de cartas para manter seus decks atualizados.</p>
+        </article>
+
+        <article class="news-item">
+          <h2>Nova Temporada do Arena</h2>
+          <span class="news-meta">Eventos e desafios</span>
+          <p>Descreva desafios especiais, recompensas e dicas para aproveitar melhor a temporada.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Login / Cadastro -->
+  <div class="modal-overlay" id="modal-auth">
+    <div class="modal">
+      <button class="modal-close" id="close-modal">×</button>
+      <div class="tabs-auth">
+        <button class="tab-auth active" data-tab="login">Login</button>
+        <button class="tab-auth" data-tab="cadastro">Cadastro</button>
+      </div>
+
+      <!-- Form de Login -->
+      <form class="form-auth active" id="form-login">
+        <h2>Entrar</h2>
+        <label>
+          Email
+          <input type="email" placeholder="seuemail@exemplo.com" required />
+        </label>
+        <label>
+          Senha
+          <input type="password" placeholder="••••••••" required />
+        </label>
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+
+      <!-- Form de Cadastro -->
+      <form class="form-auth" id="form-cadastro">
+        <h2>Criar conta</h2>
+        <label>
+          Nickname
+          <input type="text" placeholder="Seu nick no Clash" required />
+        </label>
+        <label>
+          Email
+          <input type="email" placeholder="seuemail@exemplo.com" required />
+        </label>
+        <label>
+          Senha
+          <input type="password" placeholder="Crie uma senha" required />
+        </label>
+        <button type="submit" class="btn-primary">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
